@@ -1,101 +1,128 @@
 # Node.js Media Toolkit
 
-This Node.js toolkit provides various functions for working with media files, including audio and video conversion, fetching XKCD comics, QR code reading, and more. It utilizes popular libraries such as Axios, Cheerio, and FFmpeg for media processing tasks.
-
+This Node.js toolkit provides a robust collection of over 50+ utility functions for working with media files, strings, arrays, network requests, system operations, and more. It utilizes popular libraries such as Axios, Cheerio, and FFmpeg to simplify your daily development tasks.
 
 ## Usage
 
-The toolkit provides a set of functions that can be imported into your Node.js projects. Here's how you can use it:
+1. Import specific functions into your project:
 
-1. Import the desired functions into your script:
-   ```javascript
-   const { 
-     toAudio, 
-     XKCDComic, 
-     start, 
-     getBuffer, 
-     getJson, 
-     webp2png, 
-     webp2mp4, 
-     extractUrlFromMessage, 
-     FiletypeFromUrl, 
-     toVideo, 
-     toPTT, 
-     ffmpeg, 
-     parseJid, 
-     parsedJid, 
-     isIgUrl, 
-     isUrl, 
-     getUrl, 
-     qrcode, 
-     secondsToDHMS, 
-     formatBytes, 
-     clockString, 
-     runtime, 
-     AddMp3Meta, 
-     Mp3Cutter, 
-     Bitly, 
-     isNumber, 
-     getRandom, 
-     findMusic 
-   } = require('@neeraj-x0/nodetoolkit');
-   ```
+```javascript
+const {
+  // Network
+  fetchJSON, getExchangeRate, getPublicIP, downloadFile,
+  
+  // String
+  capitalize, slugify, camelCase, truncate,
+  
+  // System
+  getSystemInfo, getFileSize,
+  
+  // Date
+  timeAgo, formatDate,
+  
+  // Media (Original)
+  toAudio, toVideo, webp2mp4
+} = require('@neeraj-x0/nodetoolkit');
+```
 
-2. Utilize the imported functions as needed. For example:
-   ```javascript
-   // Convert a buffer to an audio file
-   const audioBuffer = ...; // Buffer containing audio data
-   const audioFile = await toAudio(audioBuffer, 'mp3');
+2. Use them in your async functions:
 
-   // Fetch a random XKCD comic
-   const comic = await XKCDComic();
-   console.log('XKCD Comic Image URL:', comic.imageUrl);
+```javascript
+// Get a random quote
+const quote = await getRandomQuote();
 
-   // Get the buffer of a webp image converted to png
-   const webpUrl = 'https://example.com/image.webp';
-   const pngBuffer = await webp2png(webpUrl);
-   ```
+// Download a file
+await downloadFile('https://example.com/image.jpg', './image.jpg');
 
-## Functions
+// Format currency
+console.log(formatCurrency(1234.56, 'USD')); // "$1,234.56"
+```
 
-### Audio/Video Conversion
-- `toAudio(buffer, ext)`: Converts an audio buffer to a playable audio file (e.g., mp3).
-- `toPTT(buffer, ext)`: Converts an audio buffer to a WhatsApp-compatible audio file (opus format).
-- `toVideo(buffer, ext)`: Converts a video buffer to a playable video file (mp4).
+## Functions API
 
-### Media Utilities
-- `getBuffer(url, options)`: Fetches the buffer of a file from a URL.
-- `FiletypeFromUrl(url)`: Detects the file type of a URL.
-- `extractUrlFromMessage(message)`: Extracts URLs from a text message.
+### Network & API Utilities
+*Robust wrappers with retry logic.*
+- `fetchJSON(url, options)`: Fetch JSON with auto-retries.
+- `getExchangeRate(from, to)`: Get real-time currency exchange rates.
+- `getPublicIP()`: Retrieve your public IP address.
+- `geoLocateIP(ip)`: Get geographical location for an IP.
+- `checkWebsiteStatus(url)`: Check if a website is reachable.
+- `downloadFile(url, outputPath)`: Download a file to disk.
+- `getRandomQuote()`: Fetch a random quote.
+- `getDictionaryDefinition(word)`: Get word definitions.
+- `shortenURL(url)`: Shorten a long URL.
+- `whois(domain)`: Get domain WHOIS information.
 
-### Miscellaneous
-- `XKCDComic()`: Fetches a random comic from XKCD.
-- `webp2png(source)`: Converts a webp image to a png buffer.
-- `webp2mp4(source)`: Converts a webp image to a mp4 video buffer.
-- `getJson(url, options)`: Fetches JSON data from a URL.
-- `start(file)`: Starts a JavaScript file using Node.js clusters.
-- `ffmpeg(buffer, args = [], ext = "", ext2 = "")`: Runs FFmpeg commands asynchronously to convert media files.
-- `parseJid(text)`: Parses a text for WhatsApp JIDs.
-- `parsedJid(text)`: Parses a text for WhatsApp JIDs (alternative function).
-- `isIgUrl(url)`: Checks if a URL is an Instagram URL.
-- `isUrl(url)`: Checks if a string is a URL.
-- `getUrl(url)`: Extracts URLs from a string.
-- `qrcode(string)`: Generates a QR code buffer from a string.
-- `secondsToDHMS(seconds)`: Converts seconds to Days, Hours, Minutes, and Seconds format.
-- `formatBytes(bytes, decimals)`: Formats bytes into a human-readable format.
-- `clockString(duration)`: Converts a duration in milliseconds to a clock format (HH:MM:SS).
-- `runtime()`: Returns the runtime of the current Node.js process.
-- `AddMp3Meta(songbuffer, coverBuffer, options)`: Adds metadata to an mp3 buffer.
-- `Mp3Cutter(buffer, start, end)`: Cuts an mp3 buffer from a given start time to end time.
-- `Bitly(url)`: Shortens a URL using Bitly.
-- `isNumber()`: Checks if a string is a number.
-- `getRandom()`: Returns a random element from an array or a random number within a range.
-- `findMusic(buffer)`: Identifies music from an audio buffer and returns its details.
+### String Utilities
+- `capitalize(str)`: Capitalize the first letter.
+- `camelCase(str)`: Convert string to camelCase.
+- `kebabCase(str)`: Convert string to kebab-case.
+- `snakeCase(str)`: Convert string to snake_case.
+- `truncate(str, length)`: Truncate string with ellipses.
+- `slugify(str)`: Create URL-friendly slugs.
+- `randomString(length)`: Generate random alphanumeric string.
+- `maskString(str, visibleCount)`: Mask sensitive data.
+- `wordCount(str)`: Count words in a string.
+- `escapeHTML(str)`: Escape HTML special characters.
+
+### Array & Object Utilities
+- `chunk(arr, size)`: Split array into chunks.
+- `unique(arr)`: Remove duplicates from array.
+- `shuffle(arr)`: Randomly shuffle array elements.
+- `pick(obj, keys)`: Pick specific keys from an object.
+- `omit(obj, keys)`: Omit specific keys from an object.
+- `groupBy(arr, key)`: Group array of objects by key.
+- `flatten(arr)`: Flatten nested arrays.
+- `difference(arr1, arr2)`: Get difference between arrays.
+- `intersection(arr1, arr2)`: Get intersection of arrays.
+- `deepClone(obj)`: Deeply copy an object.
+
+### Math & Number Utilities
+- `randomInt(min, max)`: Generate random integer.
+- `clamp(num, min, max)`: Constrain number within range.
+- `roundTo(num, decimals)`: Round to decimal places.
+- `formatCurrency(num, currency)`: Format number as currency.
+- `formatCompactNumber(num)`: Format large numbers (1.2K, 1M).
+
+### Date & Time Utilities
+- `sleep(ms)`: Async delay.
+- `addDays(date, days)`: Add days to a date.
+- `formatDate(date, format)`: Format date string (YYYY-MM-DD).
+- `timeAgo(date)`: Relative time string (e.g., "2 hours ago").
+- `isLeapYear(year)`: Check for leap year.
+
+### System Utilities
+- `ensureDir(path)`: Ensure directory exists.
+- `removeFile(path)`: Safely remove a file.
+- `getHash(data)`: Calculate SHA256 hash.
+- `getFileSize(path)`: Get human-readable file size.
+- `getSystemInfo()`: Get OS, CPU, and Memory usage stats.
+
+### Validation Utilities
+- `isEmail(str)`: Validate email format.
+- `isPhoneNumber(str)`: Validate phone number.
+- `isStrongPassword(str)`: Check password strength.
+- `isEmpty(value)`: Check if null, undefined, or empty.
+- `isValidDate(date)`: Check if valid date object.
+
+### Function Wrappers
+- `retry(fn, retries)`: Retry an async function on failure.
+- `debounce(fn, ms)`: Debounce function execution.
+- `throttle(fn, ms)`: Throttle function execution.
+- `once(fn)`: Ensure function runs only once.
+- `memoize(fn)`: Cache function results.
+
+### Original Media Toolkit
+- `toAudio(buffer, ext)` / `toVideo(buffer, ext)`: Media conversion.
+- `extractUrlFromMessage(msg)`: Extract URLs from text.
+- `webp2mp4(source)`: Convert WebP to MP4.
+- `qrcode(string)`: Generate QR codes.
+- `XKCDComic()`: Fetch random comics.
 
 ## Contributing
 
-Contributions to this project are welcome! If you have any suggestions, improvements, or bug fixes, feel free to open an issue or submit a pull request.
+Contributions are welcome! Please open an issue or submit a pull request.
 
 ## License
 
-This toolkit is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+MIT License. See [LICENSE](LICENSE) file.
