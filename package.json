@@ -5,6 +5,9 @@
   "directories": {
     "lib": "lib"
   },
+  "repository": {
+  "url": "https://github.com/Neeraj-x0/node-toolkit.git"
+},
   "access": "public",
   "dependencies": {
     "acrcloud": "^1.4.0",
