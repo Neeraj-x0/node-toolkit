@@ -1,13 +1,13 @@
 {
   "name": "@neeraj-x0/nodetoolkit",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
   "repository": {
-  "url": "https://github.com/Neeraj-x0/node-toolkit.git"
-},
+    "url": "https://github.com/Neeraj-x0/node-toolkit.git"
+  },
   "access": "public",
   "dependencies": {
     "acrcloud": "^1.4.0",
