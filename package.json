@@ -1,10 +1,11 @@
 {
   "name": "@neeraj-x0/nodetoolkit",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
+  "access": "public",
   "dependencies": {
     "acrcloud": "^1.4.0",
     "agent-base": "^7.1.1",
@@ -51,7 +52,6 @@
     "mime-types": "^2.1.35",
     "ms": "^2.1.2",
     "node-domexception": "^1.0.0",
-    
     "nth-check": "^2.1.1",
     "nwsapi": "^2.2.9",
     "pako": "^1.0.11",
