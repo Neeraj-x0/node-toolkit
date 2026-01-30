@@ -3,9 +3,16 @@ const {
   XKCDComic,
   start,
   getBuffer,
+  getJson,
+  webp2png,
+  webp2mp4,
+  extractUrlFromMessage,
+  FiletypeFromUrl,
+  toVideo,
+  toPTT,
+  ffmpeg,
   parseJid,
   parsedJid,
-  getJson,
   isIgUrl,
   isUrl,
   getUrl,
@@ -20,24 +27,40 @@ const {
   isNumber,
   getRandom,
   findMusic,
-  toPTT,
-  toVideo,
-  ffmpeg,
-  FiletypeFromUrl,
-  extractUrlFromMessage,
-  webp2mp4,
-  webp2png,
+  // New String Utils
+  capitalize, camelCase, kebabCase, snakeCase, truncate, slugify, randomString, maskString, wordCount, escapeHTML,
+  // New Array Utils
+  chunk, unique, shuffle, pick, omit, groupBy, flatten, difference, intersection, deepClone,
+  // New Math Utils
+  randomInt, clamp, roundTo, formatCurrency, formatCompactNumber,
+  // New Date Utils
+  sleep, addDays, formatDate, timeAgo, isLeapYear,
+  // New Validation Utils
+  isEmail, isPhoneNumber, isStrongPassword, isEmpty, isValidDate,
+  // New Function Wrappers
+  retry, debounce, throttle, once, memoize,
+  // New System Utils
+  ensureDir, removeFile, getFileSize, getHash, getSystemInfo,
+  // New Network Utils
+  fetchJSON, getPublicIP, geoLocateIP, checkWebsiteStatus, getExchangeRate, getRandomQuote, getDictionaryDefinition, shortenURL, downloadFile, whois
 } = require("./lib");
+
 module.exports = {
+  // Original Exports
   toAudio,
-  toPTT,
-  toVideo,
   XKCDComic,
   start,
   getBuffer,
+  getJson,
+  webp2png,
+  webp2mp4,
+  extractUrlFromMessage,
+  FiletypeFromUrl,
+  toVideo,
+  toPTT,
+  ffmpeg,
   parseJid,
   parsedJid,
-  getJson,
   isIgUrl,
   isUrl,
   getUrl,
@@ -52,9 +75,21 @@ module.exports = {
   isNumber,
   getRandom,
   findMusic,
-  ffmpeg,
-  FiletypeFromUrl,
-  extractUrlFromMessage,
-  webp2mp4,
-  webp2png,
+
+  // New String Utils
+  capitalize, camelCase, kebabCase, snakeCase, truncate, slugify, randomString, maskString, wordCount, escapeHTML,
+  // New Array Utils
+  chunk, unique, shuffle, pick, omit, groupBy, flatten, difference, intersection, deepClone,
+  // New Math Utils
+  randomInt, clamp, roundTo, formatCurrency, formatCompactNumber,
+  // New Date Utils
+  sleep, addDays, formatDate, timeAgo, isLeapYear,
+  // New Validation Utils
+  isEmail, isPhoneNumber, isStrongPassword, isEmpty, isValidDate,
+  // New Function Wrappers
+  retry, debounce, throttle, once, memoize,
+  // New System Utils
+  ensureDir, removeFile, getFileSize, getHash, getSystemInfo,
+  // New Network Utils
+  fetchJSON, getPublicIP, geoLocateIP, checkWebsiteStatus, getExchangeRate, getRandomQuote, getDictionaryDefinition, shortenURL, downloadFile, whois
 };
