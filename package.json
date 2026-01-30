@@ -8,6 +8,9 @@
   "repository": {
     "url": "https://github.com/Neeraj-x0/node-toolkit.git"
   },
+  "publishConfig": {
+  "registry": "https://npm.pkg.github.com"
+},
   "access": "public",
   "dependencies": {
     "acrcloud": "^1.4.0",
